@@ -209,6 +209,9 @@
     <h1>Good news! You qualify!</h1>
     <h2>Take a look and confirm we got everything right to keep going. If something is not correct, go ahead and edit it!</h2>
 
+    <label for="address">Address</label>
+    <input type="text" id="address" value="742 Evergreen Terrace, Springfield, USA" required>
+    
     <label for="first-name">First Name</label>
     <input type="text" id="first-name" value="Steve" required>
 
@@ -267,6 +270,7 @@
     }
 
     function checkPage2Fields() {
+        const address = document.getElementById('address').value.trim();
         const firstName = document.getElementById('first-name').value.trim();
         const lastName = document.getElementById('last-name').value.trim();
         const email = document.getElementById('email').value.trim();
@@ -276,7 +280,7 @@
         const terms = document.getElementById('terms').checked;
         const button = document.getElementById('page-2-button');
 
-        if (firstName && lastName && email && phone && dob && ssn && terms) {
+        if (address && firstName && lastName && email && phone && dob && ssn && terms) {
             button.disabled = false;
             button.classList.remove('inactive');
             button.classList.add('active');
@@ -322,6 +326,7 @@
         completionModal.classList.add('active');
     });
 
+    document.getElementById('address').addEventListener('input', checkPage2Fields);
     document.getElementById('first-name').addEventListener('input', checkPage2Fields);
     document.getElementById('last-name').addEventListener('input', checkPage2Fields);
     document.getElementById('email').addEventListener('input', checkPage2Fields);
