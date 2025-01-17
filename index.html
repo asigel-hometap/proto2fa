@@ -32,34 +32,66 @@
             padding: 0;
         }
 
-        .hidden {
-            display: none;
+        h1 {
+            font-weight: 1000;
+            font-size: 38px;
+            line-height: 50px;
+        }
+
+        h2 {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 30px;
+        }
+
+        input {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 14px 4px;
+            gap: 14px;
+
+            width: 536px;
+            height: 48px;
+
+            border-bottom: 1px solid #919AAC;
+            flex: none;
+            order: 0;
+            align-self: stretch;
+            flex-grow: 0;
         }
 
         button {
-            background-color: #ccc;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: not-allowed;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 16px 24px;
+            gap: 8px;
+
+            width: 200px;
+            height: 56px;
+            border-radius: 6px;
+            flex: none;
+            order: 1;
+            flex-grow: 0;
         }
 
         button.active {
-            background-color: #366CED;
-            cursor: pointer;
+            background: #366CED;
+            color: #fff;
+        }
+
+        button.inactive {
+            background: #919AAC;
+            color: #fff;
+            cursor: not-allowed;
         }
 
         label {
             display: block;
             margin-bottom: 10px;
-        }
-
-        input, select {
-            margin-bottom: 20px;
-            padding: 8px;
-            width: 100%;
-            box-sizing: border-box;
         }
 
         .form-page {
