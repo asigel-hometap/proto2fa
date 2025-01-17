@@ -287,6 +287,15 @@
         }
     }
 
+    function toggleSSNVisibility(event) {
+        const ssnField = document.getElementById('ssn');
+        if (event.type === 'focus') {
+            ssnField.type = 'text';
+        } else if (event.type === 'blur') {
+            ssnField.type = 'password';
+        }
+    }
+
     document.getElementById('dob').addEventListener('input', checkPage1Fields);
 
     document.getElementById('page-1-button').addEventListener('click', () => {
