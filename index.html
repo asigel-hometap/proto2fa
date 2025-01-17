@@ -314,6 +314,9 @@
         }, 5000);
     });
 
+    document.getElementById('ssn').addEventListener('focus', toggleSSNVisibility);
+    document.getElementById('ssn').addEventListener('blur', toggleSSNVisibility);
+
     document.getElementById('page-2-button').addEventListener('click', () => {
         const completionModal = document.getElementById('completion-modal');
         completionModal.classList.add('active');
