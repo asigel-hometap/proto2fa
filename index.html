@@ -23,7 +23,11 @@
           m.mazeUniversalSnippetApiKey = e;
         })(window, document, 'https://snippet.maze.co/maze-universal-loader.js’, ‘1b71ac3f-702c-4429-9277-e74c84d61aa7’);
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap" rel="stylesheet">
+    <script type="text/javascript">
+      window.heapReadyCb=window.heapReadyCb||[],window.heap=window.heap||[],heap.load=function(e,t){window.heap.envId=e,window.heap.clientConfig=t=t||{},window.heap.clientConfig.shouldFetchServerConfig=!1;var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src="https://cdn.us.heap-api.com/config/"+e+"/heap_config.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(a,r);var n=["init","startTracking","stopTracking","track","resetIdentity","identify","getSessionId","getUserId","getIdentity","addUserProperties","addEventProperties","removeEventProperty","clearEventProperties","addAccountProperties","addAdapter","addTransformer","addTransformerFn","onReady","addPageviewProperties","removePageviewProperty","clearPageviewProperties","trackPageview"],i=function(e){return function(){var t=Array.prototype.slice.call(arguments,0);window.heapReadyCb.push({name:e,fn:function(){heap[e]&&heap[e].apply(heap,t)}})}};for(var p=0;p<n.length;p++)heap[n[p]]=i(n[p])};
+      heap.load("1738424715");
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;1000&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Mulish', sans-serif;
@@ -31,35 +35,31 @@
             padding: 0;
         }
 
+        .hidden {
+            display: none;
+        }
+
         h1 {
+            font-family: 'Mulish', sans-serif;
             font-weight: 1000;
             font-size: 38px;
             line-height: 50px;
         }
 
         h2 {
+            font-family: 'Mulish', sans-serif;
             font-weight: 400;
             font-size: 18px;
             line-height: 30px;
         }
 
-        input {
+        input, select {
             box-sizing: border-box;
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            padding: 14px 4px;
-            gap: 14px;
-
+            margin-bottom: 20px;
+            padding: 8px;
             width: 100%;
-            max-width: 100%;
-            height: 48px;
-
+            border: none;
             border-bottom: 1px solid #919AAC;
-            flex: none;
-            order: 0;
-            align-self: stretch;
-            flex-grow: 0;
         }
 
         button {
@@ -72,16 +72,20 @@
 
             width: 200px;
             height: 56px;
+            border: none;
             border-radius: 6px;
             margin: 40px auto;
-            flex: none;
-            order: 1;
-            flex-grow: 0;
+            background-color: #ccc;
+            color: #fff;
+            font-family: 'Mulish', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: not-allowed;
         }
 
         button.active {
-            background: #366CED;
-            color: #fff;
+            background-color: #366CED;
+            cursor: pointer;
         }
 
         button.inactive {
@@ -95,10 +99,14 @@
             margin-bottom: 10px;
         }
 
+        label.required:after {
+            content: " *";
+            color: inherit;
+        }
+
         .form-page {
             max-width: 400px;
             margin: 0 auto;
-            display: none;
         }
 
         .form-page.active {
@@ -121,8 +129,7 @@
         .checkbox-container {
             display: flex;
             align-items: center;
-            margin: 20px 0 20px;
-            max-width: 100%;
+            margin: 20px 0;
         }
 
         .checkbox-container input {
@@ -192,10 +199,10 @@
     <label for="dob">Date of Birth</label>
     <input type="date" id="dob" required>
 
-    <button id="page-1-button" class="inactive" disabled>Continue</button>
+    <button id="page-1-button" disabled>Continue</button>
 </div>
 
-<div id="page-2" class="form-page">
+<div id="page-2" class="form-page hidden">
     <div class="progress-bar">
         <div class="progress" style="width: 100%;"></div>
     </div>
@@ -210,9 +217,11 @@
 
     <label for="email">Email Address</label>
     <input type="email" id="email" value="steve.example@email.com" required>
+    <div id="email-error" class="error hidden">Please enter a valid email address.</div>
 
     <label for="phone">Phone Number</label>
     <input type="text" id="phone" value="123-456-7890" required>
+    <div id="phone-error" class="error hidden">Phone number must be exactly 10 digits.</div>
 
     <label for="dob-confirm">Date of Birth</label>
     <input type="date" id="dob-confirm" required>
